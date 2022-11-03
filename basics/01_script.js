@@ -1,3 +1,5 @@
 (function(){
-  console.log('Hello world');
+  'use-strict';
+  var variable1 = 5 
+  console.log(variable1)
 }());
