@@ -113,19 +113,15 @@
   // console.log(`String
   // multiple
   // lines`);
-
   // Taking Decisions: if / else statements
   // const age = 15;
-
   // if (age >= 18) {
   //   console.log("Sarah can start driving license 🚗");
   // } else {
   //   const yearsLeft = 18 - age;
   //   console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
   // }
-
   // const birthYear = 2012;
-
   // let century;
   // if (birthYear <= 2000) {
   //   century = 20;
@@ -133,7 +129,6 @@
   //   century = 21;
   // }
   // console.log(century);
-
   // Coding Challenge #2
   /*
   Use the BMI example from Challenge #1, and the code you already wrote, and improve it:
@@ -145,45 +140,57 @@
 
   GOOD LUCK 😃
   */
-
   // const massMark = 78;
   // const heightMark = 1.69;
   // const massJohn = 92;
   // const heightJohn = 1.95;
-
   // const massMark = 95;
   // const heightMark = 1.88;
   // const massJohn = 85;
   // const heightJohn = 1.76;
-
   // const BMIMark = massMark / heightMark ** 2;
   // const BMIJohn = massJohn / (heightJohn * heightJohn);
   // console.log(BMIMark, BMIJohn);
-
   // if (BMIMark > BMIJohn) {
   //   console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn}!)`);
   // } else {
   //   console.log(`John's BMI (${BMIJohn} is higher than Marks's (${BMIMark})!`);
   // }
-
   // Type Conversion and Coercion
-
   // type conversion
-  const inputYear = "1991";
-  console.log(Number(inputYear), inputYear);
-  console.log(Number(inputYear) + 18);
-
-  console.log(Number("Jonas"));
-  console.log(typeof NaN);
-
-  console.log(String(23), 23);
-
+  // const inputYear = "1991";
+  // console.log(Number(inputYear), inputYear);
+  // console.log(Number(inputYear) + 18);
+  // console.log(Number("Jonas"));
+  // console.log(typeof NaN);
+  // console.log(String(23), 23);
   // type coercion
-  console.log("I am " + 23 + " years old");
-  console.log("23" - "10" - 3);
-  console.log("23" / "2");
+  // console.log("I am " + 23 + " years old");
+  // console.log("23" - "10" - 3);
+  // console.log("23" / "2");
+  // let n = "1" + 1; // '11'
+  // n = n - 1;
+  // console.log(n);
 
-  let n = "1" + 1; // '11'
-  n = n - 1;
-  console.log(n);
+  // Truthy and Falsy Values
+  // 5 falsy values: 0, '', undefined, null, NaN
+  console.log(Boolean(0));
+  console.log(Boolean(undefined));
+  console.log(Boolean("Jonas"));
+  console.log(Boolean({}));
+  console.log(Boolean(""));
+
+  const money = 100;
+  if (money) {
+    console.log("Don't spend it all ");
+  } else {
+    console.log("You should get a job!");
+  }
+
+  let height = 0;
+  if (height) {
+    console.log("YAY! Height is defined");
+  } else {
+    console.log("Height is UNDEFINED");
+  }
 })();
