@@ -109,10 +109,15 @@
     3. Create a boolean variable 'markHigherBMI' containing information about whether Mark has a higher BMI than John.
   */
 
-  const massMark = 78;
-  const heightMark = 1.69;
-  const massJohn = 92;
-  const heightJohn = 1.95;
+  // const massMark = 78;
+  // const heightMark = 1.69;
+  // const massJohn = 92;
+  // const heightJohn = 1.95;
+
+  const massMark = 95;
+  const heightMark = 1.88;
+  const massJohn = 85;
+  const heightJohn = 1.76;
 
   const BMIMark = massMark / heightMark ** 2;
   const BMIJohn = massJohn / (heightJohn * heightJohn);
