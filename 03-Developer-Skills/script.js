@@ -29,8 +29,27 @@ const calcTempAmplitude = function (temps) {
     if (curTemp > max) max = curTemp;
     if (curTemp < min) min = curTemp;
   }
-  console.log(max, min);
   return max - min;
 };
 const amplitudeNew = calcTempAmplitude([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
+
+// Debugging with the Console and Breakpoints
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    value: 10,
+  };
+
+  console.table(measurement);
+
+  console.log(measurement.value);
+  console.warn(measurement.value);
+  console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+console.log(measureKelvin());
