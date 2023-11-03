@@ -355,19 +355,82 @@ for (const flight of flights.split('+')) {
 // console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
 
 // Arrays
-const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+// const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
 
-console.log(users[0]?.name ?? 'User array empty');
+// console.log(users[0]?.name ?? 'User array empty');
 
-if (users.length > 0) console.log(users[0].name);
-else console.log('user array empty');
+// if (users.length > 0) console.log(users[0].name);
+// else console.log('user array empty');
 
-// The for-off Loop
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// // The for-off Loop
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-for (const item of menu) console.log(item);
+// for (const item of menu) console.log(item);
 
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
-console.log([...menu.entries()]);
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+// console.log([...menu.entries()]);
+
+// Logical Assignment Operators
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10;
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+
+// nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+rest1.owner = rest1.owner && '<ANONYMOUS>';
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+// The Nullish Coalescing Operator
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+const guessCorrect = restaurant.numGuests ?? 10;
+console.log(guessCorrect);
+
+// Short Circuiting (&& and ||)
+
+console.log('---- OR ----');
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 0;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('---- AND ----');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && 'jonas');
