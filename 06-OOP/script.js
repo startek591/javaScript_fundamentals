@@ -301,74 +301,74 @@
 // Encapsulation: Protected Properties and Methods
 // Encapsulation: Private Class Fields and Methods
 
-class Account {
-  // 1) Public fields (instances)
-  locale = navigator.language;
+// class Account {
+//   // 1) Public fields (instances)
+//   locale = navigator.language;
 
-  // 2) Private fields (instances)
-  _movements = [];
-  _pin;
+//   // 2) Private fields (instances)
+//   _movements = [];
+//   _pin;
 
-  constructor(owner, currency, pin) {
-    this.owner = owner;
-    this.currency = currency;
-    this._pin = pin;
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this._pin = pin;
 
-    // Protected property
-    this._movements = [];
-    this.locale = navigator.language;
+//     // Protected property
+//     this._movements = [];
+//     this.locale = navigator.language;
 
-    console.log(`Thanks for opening an account, ${owner}`);
-  }
+//     console.log(`Thanks for opening an account, ${owner}`);
+//   }
 
-  getMovements() {
-    return this._movements;
-  }
+//   getMovements() {
+//     return this._movements;
+//   }
 
-  deposit(val) {
-    this._movements.push(val);
-    return this;
-  }
+//   deposit(val) {
+//     this._movements.push(val);
+//     return this;
+//   }
 
-  withdraw(val) {
-    if (this._approveLoan(val)) {
-      this.deposit(val);
-      console.log(`Loan approved`);
-      return this;
-    }
-  }
+//   withdraw(val) {
+//     if (this._approveLoan(val)) {
+//       this.deposit(val);
+//       console.log(`Loan approved`);
+//       return this;
+//     }
+//   }
 
-  requestLoan(val) {
-    if (this._approveLoan(val)) {
-      this.deposit(val);
-    }
-  }
+//   requestLoan(val) {
+//     if (this._approveLoan(val)) {
+//       this.deposit(val);
+//     }
+//   }
 
-  static helper() {
-    console.log('Helper');
-  }
+//   static helper() {
+//     console.log('Helper');
+//   }
 
-  _approveLoan(val) {
-    return true;
-  }
-}
+//   _approveLoan(val) {
+//     return true;
+//   }
+// }
 
-const acc1 = new Account('Jonas', 'EUR', 1111);
-acc1._movements.push(250);
-acc1._movements.push(-140);
-acc1._approveLoan(1000);
+// const acc1 = new Account('Jonas', 'EUR', 1111);
+// acc1._movements.push(250);
+// acc1._movements.push(-140);
+// acc1._approveLoan(1000);
 
-acc1.deposit(250);
-acc1.withdraw(140);
-acc1.requestLoan(1000);
-console.log(acc1.getMovements());
-console.log(acc1);
-Account.helper();
+// acc1.deposit(250);
+// acc1.withdraw(140);
+// acc1.requestLoan(1000);
+// console.log(acc1.getMovements());
+// console.log(acc1);
+// Account.helper();
 
-console.log(acc1._movements);
-console.log(acc1._pin);
-console.log(acc1._approveLoan(100));
+// console.log(acc1._movements);
+// console.log(acc1._pin);
+// console.log(acc1._approveLoan(100));
 
-// Chaining
-acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000);
-console.log(acc1.getMovements());
+// // Chaining
+// acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000);
+// console.log(acc1.getMovements());
