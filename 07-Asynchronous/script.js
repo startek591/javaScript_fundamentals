@@ -22,22 +22,18 @@ const renderCountry = function (data, className = '') {
 
 // Our First AJAX Call: XMLHttpRequest
 
-const getCountryData = function (country) {
-  const request = new XMLHttpRequest();
-  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
-  request.send();
+// const getCountryData = function (country) {
+//   const request = new XMLHttpRequest();
+//   request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+//   request.send();
 
-  request.addEventListener('load', function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
+//   request.addEventListener('load', function () {
+//     const [data] = JSON.parse(this.responseText);
+//     console.log(data);
 
-    renderCountry(data);
-  });
-};
-
-getCountryData('portugal');
-getCountryData('usa');
-getCountryData('germany');
+//     renderCountry(data);
+//   });
+// };
 
 // Welcome to Callback Hell
 
@@ -53,3 +49,24 @@ setTimeout(() => {
     }, 1000);
   }, 1000);
 }, 1000);
+
+// Consuming Promises
+// Chaining Promises
+// Handling Rejected Promises
+// Throwing Errors Manually
+
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      renderCountry(data[0]);
+    });
+};
+
+getCountryData('portugal');
+getCountryData('usa');
+getCountryData('germany');
