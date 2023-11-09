@@ -67,26 +67,40 @@ const renderCountry = function (data, className = '') {
 //     });
 // };
 
-const getCountryData = function (country) {
-  fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(response => {
-      if (!response.ok)
-        throw new Error(`Country not found (${response.status})`);
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.com/v3.1/name/${country}`)
+//     .then(response => {
+//       if (!response.ok)
+//         throw new Error(`Country not found (${response.status})`);
 
-      return response.json();
-    })
-    .then(data => {
-      renderCountry(data[0]);
-    })
-    .then(response => {
-      if (!response.ok)
-        throw new Error(`Country not found (${response.status})`);
+//       return response.json();
+//     })
+//     .then(data => {
+//       renderCountry(data[0]);
+//     })
+//     .then(response => {
+//       if (!response.ok)
+//         throw new Error(`Country not found (${response.status})`);
 
-      return response.json();
-    })
-    .then(data => renderCountry(data));
-};
+//       return response.json();
+//     })
+//     .then(data => renderCountry(data));
+// };
 
-getCountryData('portugal');
-getCountryData('usa');
-getCountryData('germany');
+// getCountryData('portugal');
+// getCountryData('usa');
+// getCountryData('germany');
+
+// Building a Simple Promise
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening 🔮');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN 💰');
+    } else {
+      reject(new Error('You lost your money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
