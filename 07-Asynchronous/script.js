@@ -3,18 +3,8 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
-// Our First AJAX Call: XMLHttpRequest
-
-const getCountryData = function (country) {
-  const request = new XMLHttpRequest();
-  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
-  request.send();
-
-  request.addEventListener('load', function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-
-    const html = `
+const renderCountry = function (data, className = '') {
+  const html = `
   <article class="country">
   <img class="country__img" src="${data.flags.png}" />
     <div class="country__data">
@@ -26,11 +16,40 @@ const getCountryData = function (country) {
     </div>
   </article>
   `;
-    countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+// Our First AJAX Call: XMLHttpRequest
+
+const getCountryData = function (country) {
+  const request = new XMLHttpRequest();
+  request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+  request.send();
+
+  request.addEventListener('load', function () {
+    const [data] = JSON.parse(this.responseText);
+    console.log(data);
+
+    renderCountry(data);
   });
 };
 
 getCountryData('portugal');
 getCountryData('usa');
 getCountryData('germany');
+
+// Welcome to Callback Hell
+
+setTimeout(() => {
+  console.log('1 second passed');
+  setTimeout(() => {
+    console.log('2 seconds passed');
+    setTimeout(() => {
+      console.log('3 second passed');
+      setTimeout(() => {
+        console.log('4 second passed');
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
