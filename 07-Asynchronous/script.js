@@ -20,6 +20,11 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = 1;
 };
 
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentElement('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+};
+
 // Our First AJAX Call: XMLHttpRequest
 
 // const getCountryData = function (country) {
@@ -131,43 +136,77 @@ const renderCountry = function (data, className = '') {
 // Promise.reject(new Error('Problem!')).catch(x => console.error(x));
 
 // Promisifying the Geolocation API
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(
+//       position => resolve(position),
+//       err => reject(err)
+//     );
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// };
+// getPosition().then(pos => console.log(pos));
+
+// const whereAmI = function () {
+//   getPosition()
+//     .then(pos => {
+//       const { lattitude: lat, longitude: lng } = pos.coords;
+
+//       return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+//     })
+//     .then(res => {
+//       if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+//       console.log(`You are in ${data.city}, ${data.standard.countryname}`);
+
+//       return fetch(
+//         `https://restcountries.com/v3.1/name/${data.standard.countryname}`
+//       );
+//     })
+//     .then(res => {
+//       if (!res.ok) throw new Error(`Country not found (${res.status})`);
+
+//       return res.json();
+//     })
+//     .then(data => renderCountry(data[0]))
+//     .catch(err => console.error(`${err.message} 💥`));
+// };
+
+// btn.addEventListener('click', whereAmI);
+
+// Consuming Promises with Async/Await
+// Error Handling With try...catch
+
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(
-      position => resolve(position),
-      err => reject(err)
-    );
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
-getPosition().then(pos => console.log(pos));
 
-const whereAmI = function () {
-  getPosition()
-    .then(pos => {
-      const { lattitude: lat, longitude: lng } = pos.coords;
+// fetch(`https://restcountries.com/v3.1/name/${country}`).then(res =>
+//   console.log(res)
+// );
 
-      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-    })
-    .then(res => {
-      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
-      return res.json();
-    })
-    .then(data => {
-      console.log(data);
-      console.log(`You are in ${data.city}, ${data.standard.countryname}`);
+const whereAmI = async function () {
+  try {
+    // Geolocation
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
 
-      return fetch(
-        `https://restcountries.com/v3.1/name/${data.standard.countryname}`
-      );
-    })
-    .then(res => {
-      if (!res.ok) throw new Error(`Country not found (${res.status})`);
+    // Reverse geocoding
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!resGeo.ok) throw new Error('Problem getting location data');
 
-      return res.json();
-    })
-    .then(data => renderCountry(data[0]))
-    .catch(err => console.error(`${err.message} 💥`));
+    const dataGeo = await resGeo.json();
+    console.log(dataGeo);
+  } catch (err) {
+    console.error(`${err} 💥`);
+    renderError(`💥 ${err.message}`);
+  }
 };
 
-btn.addEventListener('click', whereAmI);
+whereAmI();
+console.log('FIRST');
