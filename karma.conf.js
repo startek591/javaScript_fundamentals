@@ -9,7 +9,6 @@ module.exports = function (config) {
     // List of files/patterns to load in the browser
     files: [
       'app1.js', // Include your source files
-      'app2.js',
       'app.spec.js', // Include your spec files
     ],
 
