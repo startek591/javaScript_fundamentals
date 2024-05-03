@@ -214,3 +214,160 @@ const totals = [
 ];
 
 console.log(bills, tips, totals);
+
+// Introduction to Objects
+const jonasArray = [
+  'Jonas',
+  'Schmedtmann',
+  2037 - 1991,
+  'teacher',
+  ['Michael', 'Peter', 'Steven'],
+];
+
+const jonas2 = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  age: 2037 - 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+};
+
+// Dot vs. Bracket Notation
+const jonas3 = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  age: 2037 - 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+};
+console.log(jonas3);
+
+console.log(jonas3.lastName);
+console.log(jonas3['lastName']);
+
+const nameKey = 'Name';
+console.log(jonas3['first' + nameKey]);
+console.log(jonas3['last' + nameKey]);
+
+jonas3.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtman';
+console.log(jonas);
+
+// Object Methods
+const jonas4 = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  birthYear: 1991,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+  hasDriversLicense: true,
+  calcAge: function (brithYear) {
+    return 2037 - birthYear;
+  },
+
+  calcAge1: function () {
+    console.log(this);
+    return 2037 - this.birthYear;
+  },
+
+  calcAge2: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      jonas.job
+    }, and he has ${
+      this.hasDriversLicense ? 'a' : 'no'
+    } driver's licence.`;
+  },
+};
+
+console.log(jonas4.calcAge1());
+
+// Challenge
+// "Jonas is a 46-year old teacher, and he has a driver's license"
+// console.log(jonas.getSummary());
+
+// Code Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMI's This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the highter BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😃
+*/
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+mark.calcBMI();
+john.calcBMI();
+
+console.log(mark.bmi, john.bmi);
+
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`
+  );
+}
+
+// Looping Arrrays, Breaking and Continuing
+const jonas5 = [
+  'Jonas',
+  'Schmeditmann',
+  'teacher',
+  ['Michael', 'Peter', 'Steven'],
+  true,
+];
+const types = [];
+console.log(jonas[0]);
+console.log(jonas[1]);
+console.log(jonas[4]);
+
+for (let i = 0; i < jonas.length; i++) {
+  // Reading from jonas array
+  console.log(jonas5[i], typeof jonas[i]);
+
+  // Filling types arrays
+  types[i] = typeof jonas[i];
+  types.push(typeof jonas5[i]);
+}
+
+console.log(types);
+
+const years2 = [1991, 2007, 1969, 2020];
+const ages2 = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+}
+
+console.log(ages);
