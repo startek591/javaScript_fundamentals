@@ -417,3 +417,108 @@ console.log(0 && 'Jonas');
 console.log(7 && 'Jonas');
 
 console.log('Hello' && 23 && null && 'jonas');
+
+// Rest Pattern and Parameters
+// 1) Destructuring
+
+// SPREAD, because on RIGHT side of =
+const arr2 = [1, 2, ...[3, 4]];
+
+// REST, because on LEFt side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(others);
+
+const [pizza, risotto, otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays1 } = restaurant.openingHours;
+console.log(weekdays1);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+// The Spread Operator (...)
+const arr3 = [7, 8, 9];
+const badNewArr = [1, 2, arr3[0], arr3[1], arr3[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr3];
+console.log(newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+// Join 2 arrays
+const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu2);
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = 'Jonas';
+const letters = [...str, '', 'S.'];
+console.log(letters);
+console.log(...str);
+
+// Objects
+const newRestaurant = {
+  foundedIn: 1998,
+  restaurant,
+  founder: 'Guiseppe',
+};
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+// Destructuring Objects
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+});
+
+const { name, openingHours1, categories } = restaurant;
+console.log(name, openingHours1, categories); // it would worked openingHours wasn't defined with const
+
+// Default values
+const { menu1 = [], starterMenu: starters = [] } = restaurant;
+console.log(menu1, starters); // it would worked if menu wasn't defined with const
+
+const [x1, y, z] = arr;
+console.log(arr); // it would worked if x wasn't defined with const
+
+// Nested destructuring
+const nested = [2, 4, [5, 6]];
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// Default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
