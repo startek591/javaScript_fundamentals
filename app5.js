@@ -202,3 +202,167 @@ console.log(mike instanceof Object);
 
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
+
+// Inheritance Between "Classes": ES6 Classes
+class PersonCl3 {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.fullName}`);
+  }
+
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else console.log(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log('Hey there 👋');
+  }
+}
+
+class StudentCl extends PersonCl3 {
+  constructor(fullName, birthYear, course) {
+    // Always needs to happen first!
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(
+      `My name is ${this.fullName} and I study ${this.course}`
+    );
+  }
+
+  calcAge() {
+    console.log(
+      `I'm ${
+        2037 - this.birthYear
+      } years old, but as a student I feel more like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const martha = new StudentCl(
+  'Martha Jones',
+  2012,
+  'Computer Science'
+);
+martha.introduce();
+martha.calcAge();
+
+// Inheritance Between "Classes": Object.create
+
+const PersonProto2 = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(
+    `My name is ${this.firstName} and I study ${this.course}`
+  );
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
+
+// Encapsulation: Protected Properites and Methods
+// Encapsulation: Private Class Fields and Methods
+
+class Account {
+  // 1) Public fields (instances)
+  //   locale = navigator.language;
+
+  // 2) Private fields (instances)
+  _movements = [];
+  _pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this._pin = pin;
+
+    // Protected property
+    this._movements = [];
+    // this.locale = language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  getMovements() {
+    return this._movements;
+  }
+
+  withdraw(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+    }
+  }
+
+  requestLoan(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+    }
+  }
+
+  static helper() {
+    console.log('Helper');
+  }
+
+  _approveLoan(val) {
+    return true;
+  }
+
+  deposit(val) {
+    this._movements.push(val);
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+acc1._movements.push(250);
+acc1._movements.push(-140);
+acc1._approveLoan(1000);
+
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+console.log(acc1);
+Account.helper();
+
+console.log(acc1._movements);
+console.log(acc1._pin);
+console.log(acc1._approveLoan(100));
+
+// Chaining
+// acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000);
+console.log(acc1.getMovements());
