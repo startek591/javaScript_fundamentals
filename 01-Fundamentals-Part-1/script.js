@@ -47,3 +47,17 @@ year = 1991;
 console.log(typeof year);
 
 console.log(typeof null);
+
+// let, const and var
+let age = 30;
+age = 31;
+
+const birthYear = 1991;
+// birthYear = 1990; - const variable can't be reassigned again with another value.
+// const job; - const variable must be initialized with a value
+
+var job = 'programmer';
+job = 'teacher';
+
+lastName = 'Schmedtmann';
+console.log(lastName);
