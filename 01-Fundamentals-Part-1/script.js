@@ -131,3 +131,30 @@ const BMIJohn = massJohn / (heightJohn * heightJohn);
 const markHigherBMI = BMIMark > BMIJohn;
 
 console.log(BMIMark, BMIJohn, markHigherBMI);
+
+// Strings and Template Literals
+const firstName1 = 'Jonas';
+const job3 = 'teacher';
+const birthYear1 = 1991;
+const year1 = 2037;
+
+const jonas =
+  "I'm " +
+  firstName +
+  ', a ' +
+  (year1 - birthYear1) +
+  ' year old ' +
+  job3 +
+  '!';
+console.log(jonas);
+
+const joansNew = `I'm ${firstName1}, a year ${
+  year1 - birthYear1
+} + 'year old ${job3}!`;
+console.log(joansNew);
+
+console.log(`Just a regular string...`);
+
+console.log('String with \n lines');
+
+console.log(`String multiple lines`);
