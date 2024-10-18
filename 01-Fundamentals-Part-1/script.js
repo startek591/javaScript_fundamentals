@@ -388,3 +388,33 @@ if (day === 'monday') {
 } else {
   console.log('Not a valid day!');
 }
+
+// Statements and Expressions
+3 + 4;
+1991;
+true && false && !false;
+
+if (23 > 10) {
+  const str = '23 is bigger';
+}
+
+const me = 'Jonas';
+console.log(`I'm ${2037 - 1991} years old ${me}`);
+
+// The Conditional (Ternary) Operator
+const age2 = 23;
+age2 >= 18
+  ? console.log('I like to drink wine 🍷')
+  : console.log('I lik to drink water 💧');
+
+const drink = age2 >= 18 ? 'wine 🍷' : 'water 💧';
+console.log(drink);
+
+let drink2;
+if (age2 >= 18) {
+  drink2 = 'wine 🍷';
+} else {
+  drink2 = 'water 💧';
+}
+console.log(drink2);
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
