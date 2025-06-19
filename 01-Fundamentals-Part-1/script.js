@@ -134,3 +134,45 @@ if (birthYear2 <= 2000) {
   century = 21;
 }
 const results = century;
+
+// Type Conversion and Coercion
+
+// Type Conversion
+const inputYear = "1991";
+const conversion1 = Number(inputYear);
+const conversion2 = Number(inputYear) + 18;
+
+const conversion3 = Number("Jonas");
+const conversion4 = typeof NaN;
+
+const conversion5 = String(23);
+
+// Type Coercion
+const coercion = "I am " + 23 + " years old";
+const coercion2 = "23" - "10" - 3;
+const coercion3 = "23" / "2";
+
+let n = "1" + 1;
+n = n - 1;
+
+// Truthy and Falsy Values
+// 5 Falsy values: 0, '', undefined, null, NaN
+const falsyValues1 = Boolean(0);
+const falsyValues2 = Boolean(undefined);
+const truthyValues1 = Boolean("Jonathan");
+const truthyValues2 = Boolean({});
+const truthyValues3 = Boolean("");
+
+const money = 100;
+if (money) {
+  option1 = "Don't spend it all ;)";
+} else {
+  option2 = "You should get a job!";
+}
+
+let height = 0;
+if (height) {
+  option3 = "YAY! Height is defined";
+} else {
+  option4 = "Height is UNDEFINED";
+}
