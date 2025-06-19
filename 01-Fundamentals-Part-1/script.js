@@ -114,3 +114,23 @@ multiple \n\
 lines";
 
 const templateString3 = `String multiple lines`;
+
+// Taking Decisions: if / else Statements
+const age2 = 15;
+
+if (age2 >= 18) {
+  console.log("Sarah can start driving license 🚗");
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+}
+
+const birthYear2 = 20102;
+
+let century;
+if (birthYear2 <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+const results = century;
