@@ -99,12 +99,12 @@ const friends = ["Michael", "Steven", "Peter"];
 const y = new Array(1991, 1984, 2008, 2020);
 
 const arrayPosition1 = friends[0];
-const arrayPosition2 = friend2[2];
+const arrayPosition2 = friends[2];
 
 const arrayLength = friends.length;
 const lastArray = friends.length - 1;
 
-const arrayPosition3 = (friend2[2] = "Jay");
+const arrayPosition3 = (friends[2] = "Jay");
 const entireArray = friends;
 
 const firstName = "Jonas";
@@ -124,3 +124,25 @@ const age6 = calcAge4(years[years.length - 1]);
 const ages7 = [
   calcAge4(years[0], calcAge4(years[1]), calcAge4(years[years.length - 1])),
 ];
+
+// Basic Array Operations (Methods)
+const friends2 = ["Michael", "Steven", "Peter"];
+
+// Add elements
+const newFriendsArray = friends2.push("Jay");
+
+friends2.unshift("John");
+
+// Remove elements
+friends2.pop();
+const popped = friends2.pop();
+
+friends2.shift();
+
+const checkingIndex1 = friends2.includes("Steven");
+const checkingIndex2 = friends2.includes("Bob");
+const checkingIndex3 = friends2.includes(23);
+
+if (friends2.includes("Steven")) {
+  const results = "You have a friend called Steven";
+}
