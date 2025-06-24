@@ -72,3 +72,19 @@ function fruitProcessor(apples, oranges) {
 }
 
 const processor = fruitProcessor(2, 3);
+
+const yearsUntilRetirement2 = function (birthYear, firstName) {
+  const age = calcAge1(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(`${firstName} retires in ${retirement} years`);
+    return retirement;
+  } else {
+    console.log(`${firstName} has already retired 🎉`);
+    return -1;
+  }
+};
+
+const retirementResults3 = yearsUntilRetirement2(1991, "Jonas");
+const retirementResults4 = yearsUntilRetirement2(1950, "Mike");
