@@ -176,3 +176,33 @@ if (height) {
 } else {
   option4 = "Height is UNDEFINED";
 }
+
+// Equality Operators: == vs ===
+const age3 = "18";
+if (age3 === 18) option5 = "You just became an adult :D (strict)";
+if (age3 == 18) option6 = "You just became an adult :D (loose)";
+
+// Setup //
+const readline = require("readline");
+
+const r1 = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+r1.question("What's your favourite number?", (answer) => {
+  let favourite = Number(answer);
+  const typeofResults = typeof answer;
+  if (favourite === 23) {
+    option7 = "Cool! 23 is an amazing number!";
+  } else if (favourite === 7) {
+    option8 = "7 is alos a cool number";
+  } else if (favourite === 9) {
+    option10 = "9 is also a cool number";
+  } else {
+    option11 = "Number is not 23 or 7 or 9";
+  }
+
+  if (favourite !== 23) optoin12 = "Why not 23?";
+  r1.close();
+});
