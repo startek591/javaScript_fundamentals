@@ -163,3 +163,38 @@ const jonas2 = {
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
 };
+
+// Dot vs. Bracket Notation
+const jonas3 = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+
+jonas3;
+
+jonas3.lastName;
+
+jonas3["lastName"];
+
+const nameKey = "Name";
+jonas3["first" + nameKey];
+jonas3["last" + nameKey];
+
+/*const interestedIn = prompt(
+("What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends");
+);*/
+
+/*if (jonas3[interestedIn]) {
+  const results = jonas3[interestedIn];
+} else {
+  const results =
+    "Wrong request! Choose between firstName, lastName, age, job, and friends";
+}*/
+
+jonas.location = "Portugal";
+jonas["twitter"] = "@jonasschmedtman";
+
+jonas;
