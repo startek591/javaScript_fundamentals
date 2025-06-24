@@ -206,3 +206,22 @@ r1.question("What's your favourite number?", (answer) => {
   if (favourite !== 23) optoin12 = "Why not 23?";
   r1.close();
 });
+
+// Logical Operators
+const hasDriversLicense = true;
+const hasGoodVision = true;
+
+const andResult = hasDriversLicense && hasGoodVision;
+const orResults = hasDriversLicense || hasGoodVision;
+
+const notResults = !hasDriversLicense;
+
+let drivingResults = undefined;
+if (hasDriversLicense && hasGoodVision) {
+  drivingResults = "Sarah is able to drive!";
+} else {
+  drivingResults = "Some else should drive";
+}
+
+const isTired = false;
+drivingResults = hasDriversLicense && hasGoodVision && isTired;
