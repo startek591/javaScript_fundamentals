@@ -233,3 +233,68 @@ jonas4.calcAge3();
 jonas4.age;
 jonas4.age;
 jonas4.age;
+
+// Iteration: The for Loop
+
+console.log("Lifting weights repetition 1 🏋️‍♀️");
+console.log("Lifting weights repetition 2 🏋️‍♀️");
+console.log("Lifting weights repetition 3 🏋️‍♀️");
+console.log("Lifting weights repetition 4 🏋️‍♀️");
+console.log("Lifting weights repetition 5 🏋️‍♀️");
+console.log("Lifting weights repetition 6 🏋️‍♀️");
+console.log("Lifting weights repetition 7 🏋️‍♀️");
+console.log("Lifting weights repetition 8 🏋️‍♀️");
+console.log("Lifting weights repetition 9 🏋️‍♀️");
+console.log("Lifting weights repetition 10 🏋️‍♀️");
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 30; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
+
+// Looping Arrays, Breaking and Continuing
+const jonas5 = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+const types = [];
+
+jonas5[0];
+jonas5[1];
+jonas5[4];
+
+for (let i = 0; i < jonas5.length; i++) {
+  jonas5[i], typeof jonas5[i];
+
+  // Filling types array
+  types[i] = typeof jonas5[i];
+  types.push(typeof jonas5[i]);
+}
+
+types;
+
+const years2 = [1991, 2007, 1969, 2020];
+const ages8 = [];
+
+for (let i = 0; i < years2.length; i++) {
+  ages8.push(2037 - years2[i]);
+}
+
+ages8;
+
+// continue and break
+for (let i = 0; i < jonas5.length; i++) {
+  if (typeof jonas5[i] !== "string") continue;
+
+  console.log(jonas5, typeof jonas5[i]);
+}
+
+for (let i = 0; i < jonas5.length; i++) {
+  if (typeof jonas5[i] === "number") break;
+  console.log(jonas5[i], typeof jonas5[i]);
+}
