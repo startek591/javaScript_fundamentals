@@ -251,3 +251,12 @@ switch (day) {
   default:
     process = "Not a valid day!";
 }
+
+// The Conditional (Ternary) Operator
+const age4 = 23;
+const wineDrinker =
+  age4 >= 18 ? "I like to drink wine" : "I like to drink water";
+
+const drink2 = age4 >= 18 ? "wine 🍷" : "water 💧";
+
+console.log(`I like to drink ${age4 >= 18 ? "wine 🍷" : "water 💧"}`);
