@@ -225,3 +225,29 @@ if (hasDriversLicense && hasGoodVision) {
 
 const isTired = false;
 drivingResults = hasDriversLicense && hasGoodVision && isTired;
+
+// The Switch Statement
+let day = "friday";
+
+switch (day) {
+  case "monday":
+    process = "Plan course structure";
+    process = "Go to coding meetup";
+    break;
+  case "tuesday":
+    process = "Prepare theory vidoes";
+    break;
+  case "wednesday":
+  case "thursday":
+    process = "Write code examples";
+    break;
+  case "friday":
+    process = "Record videos";
+    break;
+  case "saturday":
+  case "sunday":
+    process = "Enjoy the weekend :D";
+    break;
+  default:
+    process = "Not a valid day!";
+}
