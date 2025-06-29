@@ -31,3 +31,36 @@ function calcAge(birthYear) {
 
 const firstName = "Jonas";
 calcAge(1991);
+
+// Hosting and TDZ in Practice
+// Variables
+
+var me = "Jonas";
+let job = "teacher";
+const year = 1991;
+
+// Functions
+addDecl(2, 3);
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+var addArrow = (a, b) => a + b;
+
+console.log(undefined);
+if (!numProducts) deleteShoppingCart();
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log("All products deleted!");
+}
+
+var x = 1;
+let y = 2;
+const z = 3;
