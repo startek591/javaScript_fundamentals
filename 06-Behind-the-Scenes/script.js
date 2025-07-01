@@ -148,3 +148,40 @@ var addArrow = (a, b) => {
 };
 
 addArrow(2, 5, 8);
+
+// Object Reference in Practice (Shallow vs. Deep Copies)
+const jessica1 = {
+  firstName: "Jessica",
+  lastName: "Williams",
+  age: 27,
+};
+
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
+
+const marriedJessica = marryPerson(jessica1, "Davis");
+
+// or
+// const marriedJessica = jessica1;
+// marriedJessica.lastName = 'Davis';
+
+const jessica = {
+  firstName: "Jessica",
+  lastName: "Williams",
+  age: 27,
+  family: ["Alice", "Bob"],
+};
+
+// Shallow copy
+const jessicaCopy = { ...jessica };
+jessicaCopy.lastName = "Davis";
+
+jessicaCopy.family.push("Mary");
+jessicaCopy.family.push("John");
+
+// Deep copy/clone
+const jessicaClone = structuredClone(jessica);
+jessicaClone.family.push("Mary");
+jessicaClone.family.push("John");
