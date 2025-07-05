@@ -256,3 +256,41 @@ console.log(rest);
 console.log(rest.size);
 
 console.log(rest.get(arr));
+
+// New Operations to Make Sets Useful!
+
+const italianFoods = new Set([
+  "pasta",
+  "gnocchi",
+  "tomatoes",
+  "olive oil",
+  "garlic",
+  "basil",
+]);
+
+const mexicanFoods = new Set([
+  "tortillas",
+  "beans",
+  "rice",
+  "tomatoes",
+  "avocado",
+  "garlic",
+]);
+
+const commonFoods = italianFoods.intersection(mexicanFoods);
+console.log("Intersection:", commonFoods);
+console.log([...commonFoods]);
+
+const italianMexicanFusion = italianFoods.union(mexicanFoods);
+console.log("Union:", italianMexicanFusion);
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log("Difference italian", uniqueItalianFoods);
+
+const uniqueItalianAndMexicanFoods =
+  italianFoods.symmetricDifference(mexicanFoods);
+console.log(uniqueItalianAndMexicanFoods);
+
+console.log(uniqueItalianAndMexicanFoods);
+
+console.log(italianFoods.isDisjointFrom(mexicanFoods));
