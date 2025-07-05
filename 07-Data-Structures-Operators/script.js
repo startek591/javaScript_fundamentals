@@ -516,3 +516,29 @@ console.log(newRestaurant);
 const restaurantCopy = { ...restaurant };
 restaurantCopy.name = "Ristorante Roma";
 console.log(restaurantCopy.name);
+
+// Destructuring Arrays
+const arr4 = [2, 3, 4];
+const a1 = arr4[0];
+const b1 = arr4[1];
+const c1 = arr4[2];
+
+const [x1, y1, z1] = arr4;
+console.log(x1, y1, z1);
+console.log(arr4);
+
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+
+// Receive 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+// Nested destructuing
+const nested = [2, 4, [5, 6]];
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// Default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
