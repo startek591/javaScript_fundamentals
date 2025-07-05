@@ -480,3 +480,25 @@ add(...x);
 
 restaurant.orderPizza("mushrooms", "onions", "olives", "spinah");
 restaurant.orderPizza("mushrooms");
+
+// The Spread Operator (...)
+
+const arr3 = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr3];
+console.log(newArr);
+
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu2);
