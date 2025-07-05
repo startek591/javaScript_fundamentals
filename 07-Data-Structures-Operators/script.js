@@ -502,3 +502,17 @@ const mainMenuCopy = [...restaurant.mainMenu];
 // Join 2 arrays
 const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu2);
+
+// Iterables: arrays, strings, maps, sets, NOT objects
+const str = "Jonas";
+const letters = [...str, " ", "S."];
+console.log(letters);
+console.log(...str);
+
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: "Guiseppe" };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Ristorante Roma";
+console.log(restaurantCopy.name);
