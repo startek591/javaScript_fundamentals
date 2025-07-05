@@ -442,3 +442,20 @@ console.log(7 && "Jonas");
 console.log("Hello" && 23 && null && "jonas");
 
 restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+// Rest Pattern and Parameters
+// 1) Destructuring
+
+// SPREAD, because of Right side of =
+const arr2 = [1, 2, ...[3, 4]];
+
+// REST, because of LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
